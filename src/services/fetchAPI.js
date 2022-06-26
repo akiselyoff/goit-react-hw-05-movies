@@ -21,3 +21,14 @@ export function getTrandingMovie() {
     return Promise.reject(new Error(`По запросу ничего не найдено`));
   });
 }
+
+export function findMovie(query) {
+  return fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`
+  ).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(new Error(`По запросу ничего не найдено`));
+  });
+}
