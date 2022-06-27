@@ -1,0 +1,18 @@
+.movieDetailsCard {
+    display:flex;
+}
+
+.movieDetailsCard > img {
+    display: block;
+    height: 400px;
+    width:auto;
+
+}
+
+.movieDetailsInfo {
+    margin: 10px;
+}
+
+.capture {
+    font-weight: bold;
+}
