@@ -1,0 +1,19 @@
+.castCard {
+    width: 200px;
+}
+.castCard > img {
+    display: block;
+    width: 50%;
+    height: auto;
+
+}
+
+.name,
+.character > span
+{
+    font-weight: bold;
+}
+.character {
+  font-style: italic;
+}
+

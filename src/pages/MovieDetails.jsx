@@ -12,7 +12,7 @@ const MovieDetails = () => {
       getMovieDetails(movieId).then(movie => setMovie(movie));
   }, [ movieId]);
 
-  const imgPath = 'https://image.tmdb.org/t/p/w500';
+    const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
     const { title, poster_path, overview } = movie;
     
 
@@ -21,7 +21,7 @@ const MovieDetails = () => {
       <Link to={backLinkHref}>Go Back</Link>
       <h1>{title}</h1>
       <img
-        src={`${imgPath}${poster_path}`}
+        src={`${IMG_PATH}${poster_path}`}
         alt={`Poster to ${title}`}
         height="400px"
       />
