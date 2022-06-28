@@ -49,8 +49,11 @@ const MovieDetails = () => {
               </p>
               <p>
                   <Link to={`reviews`}>Reviews</Link>
-              </p>
-              <Outlet />
+        </p>
+        
+          <Outlet />
+         
+              
           </div>
       
       

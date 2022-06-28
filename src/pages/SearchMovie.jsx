@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { useSearchParams } from "react-router-dom";
 import { findMovie } from '../services/fetchAPI';
-import MoviesList from './MoviesList';
+
+
+const MoviesList = lazy(() => import('./MoviesList'));
 
 const SearchMovie = () => {
 
@@ -44,9 +46,12 @@ const SearchMovie = () => {
         <button type="submit">
           <span>Search</span>
         </button>
-      </form>
+        </form>
+        <Suspense fallback={<div>Loading...</div>}>
+          {movies.length > 0 && <MoviesList movies={movies} />}
+       </Suspense>
 
-      {movies.length > 0 && <MoviesList movies={movies} />}
+      
     </>
 
     )
