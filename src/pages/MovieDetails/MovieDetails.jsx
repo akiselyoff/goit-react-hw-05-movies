@@ -12,12 +12,22 @@ const MovieDetails = () => {
   
 
   useEffect(() => {
-      getMovieDetails(movieId).then(movie => setMovie(movie));
-  }, [ movieId]);
+      getMovieDetails(movieId).then(setMovie);
+  }, [movieId]);
+  
+  
 
     const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
-    const { title, poster_path, overview, genres } = movie; // + genres
+  const { title, poster_path, overview, genres } = movie; // + genres
+  
+  // const getGenres = async (data) => {
+  //   const genres = await data;
+  //   return await genres.map(((genre) => genre.name).join(', '))
+  // }
 
+  // console.log(getGenres(genres));
+  console.log(movieId);
+  console.log(movie);
   console.log(genres);
 
   return (
@@ -34,7 +44,7 @@ const MovieDetails = () => {
       <p className={s.capture}>Overview</p>
           <p>{overview}</p>
           <p className={s.capture}>Genres</p>
-          {}
+          {/* {getGenres(genres)} */}
            {/* {genres.map(( genre ) => genre.name).join(', ')} */}
                
                
