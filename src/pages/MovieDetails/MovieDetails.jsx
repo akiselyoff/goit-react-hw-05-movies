@@ -1,6 +1,7 @@
 import { getMovieDetails } from '../../services/fetchAPI';
 import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import s from './MovieDetails.module.css';
 
 const MovieDetails = () => {
@@ -15,12 +16,13 @@ const MovieDetails = () => {
   }, [ movieId]);
 
     const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
-    const { title, poster_path, overview } = movie; // + genres
-    
+    const { title, poster_path, overview, genres } = movie; // + genres
+
+  console.log(genres);
 
   return (
     <>
-          <Link to={backLinkHref}>Go Back</Link>
+      <Link className={s.backLink} to={backLinkHref}><div className={s.backLinkContainer}><span>{<AiOutlineArrowLeft />}</span><span className={s.backLinkCapture}>Go Back</span></div></Link>
           
           <div className={s.movieDetailsCard}>
               <img src={`${IMG_PATH}${poster_path}`}
@@ -32,7 +34,8 @@ const MovieDetails = () => {
       <p className={s.capture}>Overview</p>
           <p>{overview}</p>
           <p className={s.capture}>Genres</p>
-           {/* {genres.map(({ name }) => name).join(', ')} */}
+          {}
+           {/* {genres.map(( genre ) => genre.name).join(', ')} */}
                
                
       

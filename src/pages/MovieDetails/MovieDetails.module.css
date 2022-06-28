@@ -1,3 +1,17 @@
+.backLink{
+    display: block;
+    width: 100px;
+}
+.backLinkContainer{
+    display: flex;
+    align-content: center;
+    margin: 10px;
+    width: 100%;
+  
+}
+.backLinkCapture{
+  margin-left:5px;
+}
 .movieDetailsCard {
     display:flex;
 }
