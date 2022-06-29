@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { findMovie } from '../services/fetchAPI';
 
 
-const MoviesList = lazy(() => import('./MoviesList'));
+const MoviesList = lazy(() => import('../components/MoviesList'));
 
 const SearchMovie = () => {
 

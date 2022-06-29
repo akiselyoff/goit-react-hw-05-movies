@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCast } from '../../services/fetchAPI';
+import {IMG_PATH} from '../../utils/constants'
 import s from './Cast.module.css'
 
 const Cast = () => {
 
-  const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
+ 
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   useEffect(() => {

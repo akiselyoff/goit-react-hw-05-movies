@@ -1,5 +1,5 @@
 import { getMovieDetails } from '../../services/fetchAPI';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import {IMG_PATH} from '../../utils/constants'
@@ -48,13 +48,15 @@ const MovieDetails = () => {
       <div>
          <p className={s.capture}>Additional information</p>
               <p>
-                 <Link to={`cast`} state={{ from: location }}>Cast</Link>
+                 <Link to={`cast`} state={{ from: backLinkHref }}>Cast</Link>
               </p>
               <p>
-                  <Link to={`reviews`} state={{ from: location }}>Reviews</Link>
+                  <Link to={`reviews`} state={{ from: backLinkHref }}>Reviews</Link>
         </p>
-        
+        <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
+         </Suspense>
+          
          
               
           </div>
