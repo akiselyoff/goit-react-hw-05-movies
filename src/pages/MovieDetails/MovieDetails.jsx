@@ -2,13 +2,16 @@ import { getMovieDetails } from '../../services/fetchAPI';
 import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import {IMG_PATH} from '../../utils/constants'
 import s from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = location?.state?.from ?? '/';
+  console.log(backLinkHref);
+  
   
 
   useEffect(() => {
@@ -17,7 +20,7 @@ const MovieDetails = () => {
   
   
 
-    const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
+    
   const { title, poster_path, overview, genres } = movie;
 
 
@@ -45,10 +48,10 @@ const MovieDetails = () => {
       <div>
          <p className={s.capture}>Additional information</p>
               <p>
-                 <Link to={`cast`}>Cast</Link>
+                 <Link to={`cast`} state={{ from: location }}>Cast</Link>
               </p>
               <p>
-                  <Link to={`reviews`}>Reviews</Link>
+                  <Link to={`reviews`} state={{ from: location }}>Reviews</Link>
         </p>
         
           <Outlet />

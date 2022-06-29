@@ -7,11 +7,10 @@ const MoviesList = lazy(() => import('./MoviesList'));
 
 const SearchMovie = () => {
 
-
-    const [searchQuery, setSearchQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get("query");
+    const [searchQuery, setSearchQuery] = useState(query ?? '');
     
 
     const onChange = e => {
@@ -22,6 +21,7 @@ const SearchMovie = () => {
   const onSubmit = e => {
       e.preventDefault();
       setSearchParams({ query: searchQuery.toLowerCase().trim() });
+   
       e.currentTarget.value = '';
   };
 

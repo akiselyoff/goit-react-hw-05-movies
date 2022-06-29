@@ -1,6 +1,4 @@
-const API_KEY = 'd82e9b87075796c7a6b6bfa80b102f66';
-// const BASE_REQUEST_URL = `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`;
-// const TRANDING_REQUEST = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
+import { API_KEY } from '../utils/constants';
 
 async function fetchWithErrorHandling(url = '') {
   const response = await fetch(url);
@@ -8,10 +6,6 @@ async function fetchWithErrorHandling(url = '') {
     ? await response.json()
     : Promise.reject(new Error('Not Found'));
 }
-
-// export function getData() {
-//   return fetchWithErrorHandling(`${BASE_REQUEST_URL}`);
-// }
 
 export function getTrandingMovie() {
   return fetchWithErrorHandling(
