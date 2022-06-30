@@ -17,8 +17,6 @@ const SearchMovie = () => {
   const onSubmit = e => {
     e.preventDefault();
     setSearchParams({ query: searchQuery.toLowerCase().trim() });
-
-    e.currentTarget.value = '';
   };
 
   useEffect(() => {
